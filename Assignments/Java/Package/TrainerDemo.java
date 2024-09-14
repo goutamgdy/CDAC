@@ -10,3 +10,6 @@ public class TrainerDemo {
         s1.display();   
     }
 }
+//d:\javaprogs\javac -d . Stuent.java
+//d:\javaprogs\javac -d .Trainer.java
+//d:\javaprogs\javac -d . *.java
