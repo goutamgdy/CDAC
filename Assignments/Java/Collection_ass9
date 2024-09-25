@@ -1,0 +1,132 @@
+package ass_7;
+
+import java.util.Objects;
+
+public class Emp implements Comparable<Emp>{
+private String name;
+private double salary;
+private int empid;
+private String dept;
+public Emp() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+public Emp(String name, double salary, int empid, String dept) {
+	super();
+	this.name = name;
+	this.salary = salary;
+	this.empid = empid;
+	this.dept = dept;
+}
+
+public String toString() {
+	return "Emp name :" +name+"    Salary :" + salary+"    Empid :"+ empid + "    Dept :"+dept;
+}
+
+public int compareTo(Emp o) {
+	
+	int diff = 0;
+	if(this.salary> o.salary) {
+		return 1;
+	}
+	else if(this.salary < o.salary) {
+		diff = -1;
+	}
+	else if (this.salary==o.salary){
+		if ((this.dept).compareTo(o.dept)>0){
+			return 1;
+			
+		}
+		else if((this.dept).compareTo(o.dept)<0) {
+			return -1;
+		}			
+		else if((this.dept).equals(o.dept)==true) {
+			if ((this.name).compareTo(o.name)>0){
+				return 1;
+				
+			}
+			else if((this.name).compareTo(o.name)<0) {
+				return -1;
+			}			
+			else if((this.name).equals(o.name)==true) {
+				if(this.empid> o.empid) {
+					return 1;
+				}
+				else if(this.empid < o.empid) {
+					diff = -1;
+				}
+			}
+		}
+		
+	}
+	//diff = o.sid - this.sid;
+	//diff = (int)(this.percent - o.percent);
+	return diff;
+}
+public String getName() {
+	return name;
+}
+public double getSalary() {
+	return salary;
+}
+public String getDept() {
+	return dept;
+}
+public void setDept(String dept) {
+	this.dept = dept;
+}
+
+}
+
+
+
+
+package ass_7;
+
+import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
+
+import ass_7.Emp;
+
+public class EmpMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		Comparator<Emp> p = new Comparator<Emp>() {
+//			@Override
+//			public int compare(Emp o1, Emp o2) {
+//				if(o1.getDept().length()>o2.getDept().length()) {
+//					return 1;
+//				}
+//				else if(o1.getDept().length()<o2.getDept().length())
+//				{
+//					return -1;
+//				}
+//				else {
+//
+//					if((o1.getName()).length() > (o2.getName()).length()) {
+//						return 1;}
+//					else if((o1.getName()).length() < (o2.getName()).length()) {
+//						return -1;}
+//					else {
+//						return 0;
+//					}
+//				}
+//			}
+//			
+//			};
+		Set<Emp> emps = new TreeSet<>();	
+		
+		emps.add(new Emp("Rupesh ",1000,1,"Dac"));
+		emps.add(new Emp("Atif   ",1000,2,"Dbda"));
+		emps.add(new Emp("Rupesh",1000,3,"Dac"));
+		emps.add(new Emp("Gautam ",1000000,4,"Dbda"));
+		emps.add(new Emp("Raj    ",1000,5,"Dac"));
+		for(Emp e : emps) {
+		System.out.println(e);
+		}
+		
+
+	}
+}
